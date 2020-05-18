@@ -1,0 +1,10 @@
+           일반클래스                 추상클래스               인터페이스
+
+키워드   class                         class                      interface
+상속      extends                     extends                  implements
+함수      일반                         일반,abstract            abstract
+변수      일반,final                  일반,final                  final
+생략      
+(abstract)  생략X                    생략X                      생략O
+(final)       생략X                    생략X                      생략O
+다중상속    X                          X                           O
