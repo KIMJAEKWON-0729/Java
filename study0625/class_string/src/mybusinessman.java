@@ -1,0 +1,2 @@
+class supercls{
+	public supercls}
