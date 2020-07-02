@@ -8,7 +8,7 @@ package shape;
  *  +setter & getter
  *  +getSize():double 
  */
-public class Shape {
+abstract  public class Shape {
 	int data1;
 	int data2;
 	public Shape() {
@@ -31,10 +31,7 @@ public class Shape {
 	public void setData2(int data2) {
 		this.data2 = data2;
 	}
-	public double getSize(){
-		return 0;
-	}
-	
+	abstract  public double getSize();	
 	
 	
 
