@@ -1,0 +1,99 @@
+﻿[문제 43] 오버라이드(override)를 이용하여 다음 프로그램을 작성하시오
+(1)클래스명: Circle
+   #r:int        
+   #size :double        ==> 계산된 결괏값을 저장하는 변수
+   #PI:double            ==> 초기값 3.141592, final
+   +Circle(r:int)         ==> 반지름 대입
+   +compute():void       
+   +output():void 
+
+(2)클래스명 :  CircleArea     ==> Circle클래스를 상속하시오
+   +CircleArea(r:int)
+   +compute():void            ==> 원의 넓이=반지름 *반지름*3.141592
+   +output():void               ==> 출력      
+       
+(3)클래스명 :  CircleRound    ==> Circle클래스를 상속하시오
+   +CircleRound(r:int)
+   +compute():void              ==>원의둘레=반지름 * 2 * 3.141592
+   +output():void                 ==>출력
+
+(4)Test43클래스 main()에서
+   CircleArea   ob1 = new CircleArea(10);
+   CircleRound  ob2 = new CircleRound(10);
+   ob1.compute();
+   ob1.output();
+   ob2.compute();
+   ob2.output();
+
+[결과화면]
+원의넓이 : 314.1592
+원의둘레 : 62.83184
+---------------------------------------------------------------------------------------------------
+[문제44] 오버라이드(override)를 이용하여 다음 프로그램을 작성하시오
+(1)클래스명: Emp
+   name:String                   ==> 초깃값 : 홍길동
+   salary:int                        ==> 초깃값 : 32000000
+   +getDisplay():String        ==> 이름과 연봉출력
+
+(2)클래스명: EmpExt
+   department:String        ==> 초깃값 : "홍보부";
+   +getDisplay():String    ==> 부서출력
+
+(3)Test44클래스 main()에서
+    Emp ob = new EmpExt();   
+    //나머지를 완성하시오
+
+[결과화면]
+이름 : 홍길동
+연봉 : 32,000,000원   <----3자리마다 콤마(,)찍고 화폐단위 "원"을 붙여주시오(DecimalFormat이용)
+부서 : 홍보부
+---------------------------------------------------------------------------------------------------
+[문제 45] 추상클래스를 이용하여 다음 프로그램을 완성하시오
+(1)추상클래스:  Height 
+   +INCH:double                              ==> final변수, 초기값:2.54 
+   +getInch(double cm):double          ==> 추상메서드
+(2)Test45클래스에서 Height를 상속받으시오
+(3)Test45클래스 main에서
+      - Scanner를 이용해서 cm를 입력받는다
+      - getInch()메서드를 호출해서 결괏값을 출력한다
+
+[결과화면]
+입력(cm)를 입력하시오 : 5.08
+5.08cm는  2인치입니다
+---------------------------------------------------------------------------------------------------
+[문제46] 동적바인딩(Dynamic Binding)을 이용하여 다음 프로그램을 완성하시오
+(1)클래스명 : Shape
+   -nData1:int
+   -nData2:int
+   +Shape(int data1, int data2)
+    +getter    
+    +getArea():double            ==> abstract 
+(2)클래스명 : Triangle              ==> Shape를 상속받음
+   +Triangle(data1:int, data2:int)
+   +getArea():double 
+(4)클래스명 : Rectangle           ==> Shape를 상속받음
+   +Rectangle(data1:int, data2:int)
+   +getArea():double
+
+(5)Test46클래스의 main()메서드에서 아래코드외에 나머지를 완성하시오
+   Shape ob=null;
+   Scanner sc=new Scanner(System.in);
+   while(true){
+             System.out.print("1.삼각형 2. 사각형  3. 종  료\n선택(1-3)");
+             int n=sc.nextInt();
+	                 :
+   }
+
+[결과화면]
+1. 삼각형  2. 사각형  3. 종  료
+선택(1-3) : 1
+밑변 : 2
+높이 : 3
+넓이 : 6.00
+
+
+1. 삼각형  2. 사각형  3. 종  료
+선택(1-3) : 2
+가로 : 4
+세로 : 5
+넓이 : 20

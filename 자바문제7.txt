@@ -1,0 +1,180 @@
+﻿[문제 38] 다음과 같은 결과가 나오도록 수정하시오
+         (단, main()안의 내용수정과 새로운 Method추가하지마시오)
+
+[결과화면]
+###인적사항###
+이름 : 민들래
+나이 : 23
+신장 : 165.3 
+------------------------
+class Parent
+{
+	String name;
+	public Parent(){	
+		System.out.println("###인적사항###");
+	}
+	public Parent(String name){	
+
+	}
+	public void printView(){
+		System.out.println("이름 : " + name);
+	}
+}
+class Child extends Parent
+{
+	int age;
+	float tall;
+	
+	public Child(String name, int age, float tall){
+
+	}
+	public void printView(){
+		System.out.println("나이 : " + age);
+		System.out.println("신장 : " + tall);
+	}
+}
+public class Test38 {
+	public static void main(String[] args) {
+		new Child("민들래", 23, 165.3f).printView();
+	}
+}
+--------------------------------------------------------------------
+[문제 39]다음과 같은 결과가 나오도록 수정하시오
+        (단, main()안의 내용수정과 새로운 Method추가하지마시오)
+
+[결과화면]
+**** x,y,z에 값채우기***
+10을 넘겨받은 생성자
+10   20   을 넘겨받은 생성자
+10   20   30  을 넘겨받은 생성자
+10   20   30
+합 : 60
+------------------------------------
+class SuperEx
+{
+	int x,y,z;
+	
+	public SuperEx(){
+		System.out.println("**** x,y,z에 값채우기***");
+	}
+	public SuperEx(int k){
+		System.out.println(k + "을 넘겨받은 생성자");
+	}
+	public SuperEx(int a, int b){
+		System.out.println(a + "   " +b+"   을 넘겨받은 생성자");
+	}
+	public SuperEx(int x,int y,int z){
+                            System.out.println(x+ "   " +y+"   " +z+"   을 넘겨받은 생성자");
+	}
+	public void display(){
+		System.out.println(this.x+"   "+this.y+"   "+this.z);
+	}
+}
+class SubEx extends SuperEx
+{
+	public SubEx(int a,int b,int c){
+	    //코드를 추가하시오	
+		
+	    super.display();
+	    this.sumData();
+	}	
+	public void sumData(){
+		System.out.println("합 : " + (x+y+z));
+	}
+}
+public class Test39 {
+	public static void main(String[] args) {
+		 new SubEx(10,20,30);
+	}
+}
+--------------------------------------------------------------------
+[문제 40 다음 프로그램을 완성하시오
+(1)클래스명: Entry
+   -word:String 
+   +Entry()                               ==>  ***약어사전***  출력
+   +Entry(word:String)        ==>  Entry()호출 
+   +writeView():void              ==>  약어출력
+
+(2)클래스명: SubEntry   ==> Entry를 상속받음
+   -definition:String  
+   -year:int
+   +SubEntry()
+   +SubEntry(word:String)                                                   ==> Entry(String word)   호출 
+   +SubEntry(word:String, definition:String, year:int)   ==> SubEntry(String word)호출
+   +printView():void                                                                 ==> 원어, 시기출력
+
+(3)Test40클래스의  main()함수에서
+    SubEntry ob=new SubEntry("OOP","Object Oriented Programming", 1991);
+    ob.writeView();
+    ob.printView();
+
+[결과화면]
+*****약어사전******
+약어 : OOP
+원어 : Object Oriented Programming
+시기 : 1991년
+--------------------------------------------------------------------
+[문제 41] 다음 프로그램을 완성하시오
+(1)클래스명 : Salary
+  -name:String (이름)
+  -salary:int  (연봉)
+  +Salary()
+  +Salary(name:String, salary:int) ==> name, salary에 대입
+  +viewInfomation():void     ==> 메서드에서 이름과 연봉을 출력
+
+(2)클래스명 : Test41   ==> Salary를 상속받음
+  -department:String(부서)
+  +Test41()
+  +Test41(nameString, salary:int, department:String)
+  +viewInfomation():void     ==> 부서 출력
+
+(3)main()함수에서
+   Test41  ob = new Test41("홍길동",85000000,"개발부"); 
+   //나머지를 완성하시오
+           :
+
+[결과화면]
+이름 : 홍길동
+연봉 : 85000000
+부서 : 개발부
+--------------------------------------------------------------------
+[문제 42] 다음 프로그램을 완성하시오  ==> 도전과제
+(1)클래스명 : Health
+      +gender:char        (성별)
+      +tall:double          (신장)
+      +weight:double     (체중)
+      +Health()
+      +input():void          - 성별, 신장, 체중을 입력받는다
+      +output():String     - 성별, 신장, 체중을 문자열로 만들어 리턴한다
+
+(2)클래스(Test42) 에서 Health를 상속받음
+        -fat:double            (비만도)
+        -result:String         (결과값)
+        +Test42()
+        +calculate():void      - 비만도를 계산하여 결과(저체중,경도비만....)를 구한다
+        +output():String      - 결과를 문자열로 만들어 리턴한다
+
+(3) 표준체중계산법
+    남성 : 표준체중 = (신장-100)*0.9
+    여성 : 표준체중 = (신장-100)*0.85
+
+    비만도 = 현재체중(Kg)/표준체중(Kg)*100
+    ---------------------------------------------------------
+    90%이하  : 저체중               121-130% : 경도비만
+    91 -110% : 정상(표준체중)   131-150% : 중도비만
+    111-120% : 과체중              150%     : 고도비만
+(4) Test42클래스 main()에서 아래코드를 작성한다(더 이상 코드는 추가하지 않는다)
+     Test42 ob=new Test42();
+     System.out.println(ob.output());
+
+[결과화면]
+   성별(M/F)을 입력하시오: M               <---남(M) / 여(F)
+   신장(Cm)을 입력하시오: 175.3
+   체중(Kg)을 입력하시오: 95.45
+
+   **비만도 측정 결과**
+   성별: M 
+   신장: 175.3Cm
+   체중: 95.45Kg
+   결과: 당신은 비만도 140.84이고  중도비만 입니다.
+
